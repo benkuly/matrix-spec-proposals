@@ -308,5 +308,5 @@ FIXME
 
 This MSC builds on:
 
-- MSC9998 FIXME
-- MSC9997 FIXME
+- MSC9999: Select shared invite state
+- MSC9999: FIXME
