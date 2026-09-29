@@ -44,10 +44,6 @@ Effectively, an `m.jscalendar` room has the meaning of `@type:Group`: It contain
 > Clients MUST NOT use `m.room.name` and `m.room.topic`. Instead, they should use `title` and `description` of
 > `m.jscalendar.group`.
 
-> [!TIP]
-> While `m.jscalendar` could exist on its own, users may want to group them into a personal or shared (e.g. team)
-> calendar. This is possible by adding these rooms into a Matrix space.
-
 ### New state events
 
 #### `m.jscalendar.group`
@@ -258,6 +254,17 @@ changed, the patch points to an older state. This is effectively resetting parti
 e.g. changes of the date, it may be inconvenient for changes like a location. A client SHOULD consider this by following
 `replaces_state` of `m.jscalender.event` and `m.jscalendar.task` events, finding relations for each state in history and
 try to apply them on the current state.
+
+## Calendar
+
+While rooms with type `m.jscalendar` can exist on its own, users may want to group them. This is possible by adding
+these rooms into a Matrix space. This works for already joined `@type:Group`s, but does not scale very well for new
+users of a space. Because all data of `@type:Group` lies within the `m.jscalendar` rooms, the user needs to join a lot
+of rooms to get all relevant information.
+
+TODO how do we solve this? Does it scale? What about new calendar events? Alternative: don't use spaces for hierarchy at
+all? Instead, use `m.jscalendar` with all `m.jscalendar.event` of the shared calendar and when guest are needed to join
+an event, copy it into a new room?
 
 ## Potential issues
 
