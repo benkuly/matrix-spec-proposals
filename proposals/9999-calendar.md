@@ -330,4 +330,4 @@ FIXME
 This MSC builds on:
 
 - MSC9999: Select shared invite state
-- MSC9999: FIXME
+- MSC9999: Calendar scheduling
