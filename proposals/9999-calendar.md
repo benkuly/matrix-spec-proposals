@@ -10,6 +10,19 @@ The goal of this MSC is to define a lightweight model for calendars and events i
 and to specify the calendar features that can be supported. This MSC also provides an umbrella for related MSCs required
 to implement the full calendar and event model.
 
+Nowadays, digital calendars are really frustrating to use. As long as one stays at the same platform it sort of works.
+But as soon as users from other vendors are invited to calendar events, copies of the calendar event are sent via E-Mail
+into another calendar solution.
+This leads to a bunch of problems. Here are a few of them:
+
+- calendar events can get out of sync when an E-Mail is missed of have forgotten to read/process
+- separate links are needed for simple chat rooms or video calls
+- simply sharing whole calendars is usually not possible at all
+- finding a date where everyone is available needs third party tools or manual communication
+
+This proposal tries to solve digital calendars. It allows to synchronize events and calendars over federation, includes
+chat/calls/etc. and still is backwards compatible (via E-Mail and Matrix guest users similar to MatrixRTC calls)
+
 ## Proposal
 
 Because calendars have been extensively modeled in both theoretical and practical software engineering, this MSC uses
@@ -280,7 +293,8 @@ the future, this could lead to unexpected problems.
 
 Instead of having "one room per calendar event", calendar events could always be grouped into rooms and calendar events
 copy-share out of band similar to E-Mail. This approach is used
-in [MSC4496](https://github.com/matrix-org/matrix-spec-proposals/pull/4496).
+in [MSC4496](https://github.com/matrix-org/matrix-spec-proposals/pull/4496). While this mimics the way, calendar events
+are shared today via E-Mail, it also inherits all the problems discusses at the introduction of this proposal.
 
 ### Matrix native events
 
